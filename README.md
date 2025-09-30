@@ -32,5 +32,4 @@ npm run dev
 ```
 
 
-Si tu veux, je peux te proposer **une version ultra-courte et minimaliste**, parfaite pour GitHub, qui reste chic et lisible.
-Veux‑tu que je fasse ça ?
+
