@@ -9,7 +9,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
-import { toast } from "@/hooks/use-toast";
+
 import { useState } from "react";
 import { Plane, MapPin, Calendar, Package } from "lucide-react";
 
@@ -32,10 +32,7 @@ const BecomeCarrierModal = ({ open, onOpenChange }: BecomeCarrierModalProps) => 
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    toast({
-      title: "Demande envoyée !",
-      description: "Nous examinerons votre candidature et vous contacterons bientôt.",
-    });
+   
     onOpenChange(false);
     setFormData({
       name: "",

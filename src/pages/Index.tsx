@@ -1,20 +1,18 @@
 import { useState } from "react";
 import Header from "@/components/Header";
 import SearchForm, { SearchData } from "@/components/SearchForm";
+
 import CarrierCard from "@/components/CarrierCard";
 import CarrierDetail from "@/components/CarrierDetail";
 import Footer from "@/components/Footer";
 import { ChevronDown } from "lucide-react";
-import { toast } from "@/hooks/use-toast";
+
 
 const Index = () => {
   const [selectedCarrier, setSelectedCarrier] = useState(1);
 
   const handleSearch = (data: SearchData) => {
-    toast({
-      title: "Recherche lancée",
-      description: `Recherche de ${data.departure} vers ${data.destination} pour ${data.weight}kg`,
-    });
+     console.log(`Recherche de ${data.departure} vers ${data.destination} pour ${data.weight}kg`);
   };
 //Déclaration des porteurs
   const carriers = [
