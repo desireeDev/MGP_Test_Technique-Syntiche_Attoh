@@ -33,7 +33,7 @@ return new class extends Migration
             $table->timestamp('date_reservation')->nullable();
             $table->date('date_livraison_prevue')->nullable();
             $table->date('date_livraison_reelle')->nullable();
-            $table->string('code_suivi', 15)->unique()->nullable();
+            $table->string('code_suivi', 30)->unique()->nullable();
             $table->text('instructions_livraison')->nullable();
             $table->timestamps();
 
