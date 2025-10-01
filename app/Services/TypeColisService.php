@@ -7,6 +7,7 @@ use App\DTO\TypeColisDTO;
 
 /**
  * Service pour gérer les types de colis.
+ * Toutes les données sont normalisées via le TypeColisDTO.
  */
 class TypeColisService
 {
@@ -14,37 +15,41 @@ class TypeColisService
      * Récupère un type de colis par son ID
      *
      * @param int $id
-     * @return TypeColisDTO|null
+     * @return array|null Tableau du type de colis ou null si non trouvé
      */
-    public function getById(int $id): ?TypeColisDTO
+    public function getById(int $id): ?array
     {
         $type = TypeColis::find($id);
         if (!$type) return null;
 
-        return new TypeColisDTO(
+        // Retourne le DTO transformé en tableau
+        return (new TypeColisDTO(
             $type->id_type_colis,
             $type->nom_type,
             $type->restrictions,
             $type->description,
             $type->fragile
-        );
+        ))->toArray();
     }
 
     /**
      * Récupère tous les types de colis
      *
-     * @return TypeColisDTO[]
+     * @return array Tableau de tableaux représentant les types de colis
      */
     public function getAll(): array
     {
-        return TypeColis::all()->map(function ($type) {
-            return new TypeColisDTO(
+        $types = TypeColis::all();
+
+        // Transforme chaque type en tableau via le DTO
+        return $types->map(function ($type) {
+            return (new TypeColisDTO(
                 $type->id_type_colis,
                 $type->nom_type,
                 $type->restrictions,
                 $type->description,
                 $type->fragile
-            );
+            ))->toArray();
         })->toArray();
     }
 }

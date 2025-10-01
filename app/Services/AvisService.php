@@ -7,7 +7,7 @@ use App\DTO\AvisDTO;
 
 /**
  * Service pour gérer les avis laissés sur les porteurs.
- * Permet de récupérer les avis de façon structurée.
+ * Toutes les données sont normalisées via le DTO AvisDTO.
  */
 class AvisService
 {
@@ -15,14 +15,14 @@ class AvisService
      * Récupère un avis par son ID
      *
      * @param int $id
-     * @return AvisDTO|null
+     * @return array|null Tableau représentant l'avis ou null si non trouvé
      */
-    public function getById(int $id): ?AvisDTO
+    public function getById(int $id): ?array
     {
         $avis = Avis::find($id);
         if (!$avis) return null;
 
-        return new AvisDTO(
+        return (new AvisDTO(
             $avis->id_avis,
             $avis->id_utilisateur_porteur,
             $avis->id_evaluateur,
@@ -30,18 +30,18 @@ class AvisService
             $avis->note,
             $avis->commentaire,
             $avis->date_avis
-        );
+        ))->toArray();
     }
 
     /**
      * Récupère tous les avis
      *
-     * @return AvisDTO[]
+     * @return array Tableau de tableaux représentant tous les avis
      */
     public function getAll(): array
     {
         return Avis::all()->map(function ($avis) {
-            return new AvisDTO(
+            return (new AvisDTO(
                 $avis->id_avis,
                 $avis->id_utilisateur_porteur,
                 $avis->id_evaluateur,
@@ -49,7 +49,7 @@ class AvisService
                 $avis->note,
                 $avis->commentaire,
                 $avis->date_avis
-            );
+            ))->toArray();
         })->toArray();
     }
 }

@@ -16,47 +16,46 @@ class UserService
      * Récupère un utilisateur par son ID
      *
      * @param int $id
-     * @return UserDTO|null Retourne un UserDTO ou null si l'utilisateur n'existe pas
+     * @return array|null Retourne un tableau ou null si l'utilisateur n'existe pas
      */
-    public function getUserById(int $id): ?UserDTO
+    public function getUserById(int $id): ?array
     {
         // Cherche l'utilisateur dans la base
         $user = User::find($id);
 
         if (!$user) {
-            // Si non trouvé, retourne null
             return null;
         }
 
-        // Retourne un DTO pour normaliser la sortie
-        return new UserDTO(
+        // Retourne les données du DTO transformées en tableau
+        return (new UserDTO(
             $user->id_utilisateur,
             $user->nom,
             $user->prenom,
             $user->email,
             $user->photo_profil
-        );
+        ))->toArray();
     }
 
     /**
      * Récupère tous les utilisateurs
      *
-     * @return UserDTO[] Tableau de UserDTO
+     * @return array Tableau de tableaux représentant les utilisateurs
      */
     public function getAllUsers(): array
     {
-        // On récupère tous les utilisateurs depuis la base
+        // Récupère tous les utilisateurs
         $users = User::all();
 
-        // On transforme chaque utilisateur en DTO pour normaliser la sortie
+        // Transforme chaque utilisateur en tableau via le DTO
         return $users->map(function ($user) {
-            return new UserDTO(
+            return (new UserDTO(
                 $user->id_utilisateur,
                 $user->nom,
                 $user->prenom,
                 $user->email,
                 $user->photo_profil
-            );
+            ))->toArray();
         })->toArray();
     }
 }
