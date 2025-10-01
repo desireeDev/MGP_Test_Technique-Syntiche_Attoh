@@ -1,34 +1,32 @@
+// src/components/CarrierDetail.tsx
 import { Star, AlertTriangle, Clock } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
-//Interface Typée pour les données du porteur
-interface Carrier {
-  id: number;
-  name: string;
-  location: string;
-  rating: number;
-  reviews: number;
-  capacity: string;
-  expiresIn: string;
-  arrivalDate: string;
-  avatar: string;
-  price?: string;
-}
-//Interface Typée pour les props du composant
+// Interface typée pour les données du porteur avec types de colis
 interface CarrierDetailProps {
-  carrier: Carrier;
+  carrier: {
+    id: number;
+    name: string;
+    location: string;
+    rating: number;
+    reviews: number;
+    capacity: string;
+    expiresIn: string;
+    arrivalDate: string;
+    avatar: string;
+    price: string;
+    typesColis: string[]; // <-- types de colis dynamiques
+  };
 }
 
 const CarrierDetail = ({ carrier }: CarrierDetailProps) => {
-  const acceptedItems = [
-    "Électronique",
-    "Vêtements, Bijoux",
-    "Documents, Nourriture",
-    "Liquides, Cosmétiques"
-  ];
-
   const availableWeight = carrier.capacity.match(/\d+/)?.[0] || "0";
-  const price = carrier.price || "5,23";
+  const price = carrier.price || "N/A";
+
+  const acceptedItems =
+    carrier.typesColis.length > 0
+      ? carrier.typesColis
+      : ["Électronique", "Vêtements, Bijoux", "Documents, Nourriture", "Liquides, Cosmétiques"];
 
   return (
     <div className="space-y-6">
@@ -42,11 +40,7 @@ const CarrierDetail = ({ carrier }: CarrierDetailProps) => {
         <div className="flex items-center justify-between mb-2">
           {/* Départ */}
           <div className="flex items-center gap-3 min-w-[120px]">
-            <img
-              src="/assets/Dakar.png"
-              alt="Sénégal"
-              className="w-8 h-8 object-contain"
-            />
+            <img src="/assets/Dakar.png" alt="Sénégal" className="w-8 h-8 object-contain" />
             <div>
               <div className="font-bold text-xl text-blue-500">Dakar, Sen</div>
               <div className="text-sm text-muted-foreground">22 Nov, 2024</div>
@@ -57,11 +51,7 @@ const CarrierDetail = ({ carrier }: CarrierDetailProps) => {
           <div className="flex-1 relative mx-4">
             <div className="h-px bg-border absolute top-1/2 left-0 right-0"></div>
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-              <img
-                src="/assets/laValise.png"
-                alt="Indicateur"
-                className="w-5 h-5 object-contain"
-              />
+              <img src="/assets/laValise.png" alt="Indicateur" className="w-5 h-5 object-contain" />
             </div>
           </div>
 
@@ -71,11 +61,7 @@ const CarrierDetail = ({ carrier }: CarrierDetailProps) => {
               <div className="font-bold text-xl text-blue-500">Paris-Orly, Fra</div>
               <div className="text-sm text-muted-foreground">23 Nov, 2024</div>
             </div>
-            <img
-              src="/assets/FR.png"
-              alt="France"
-              className="w-8 h-8 object-contain"
-            />
+            <img src="/assets/FR.png" alt="France" className="w-8 h-8 object-contain" />
           </div>
         </div>
 
@@ -99,11 +85,7 @@ const CarrierDetail = ({ carrier }: CarrierDetailProps) => {
         <div className="flex items-center gap-4 mb-6">
           <div className="relative">
             <div className="w-14 h-14 rounded-full overflow-hidden">
-              <img
-                src={carrier.avatar}
-                alt={carrier.name}
-                className="w-full h-full object-cover"
-              />
+              <img src={carrier.avatar} alt={carrier.name} className="w-full h-full object-cover" />
             </div>
             <div className="absolute -bottom-1 -right-1 w-5 h-5 bg-success rounded-full border-2 border-card"></div>
           </div>
@@ -133,9 +115,29 @@ const CarrierDetail = ({ carrier }: CarrierDetailProps) => {
           </Button>
         </div>
 
-        {/* Assurance et autres */}
+        {/* Types de colis */}
         <div className="grid grid-cols-3 gap-4 mb-6">
-          {/* Reviews */}
+          <div>
+            <div className="text-sm text-muted-foreground mb-2">Type de colis accepté</div>
+            <div className="space-y-1 mt-2">
+              {acceptedItems.map((item, index) => (
+                <div key={index} className="text-sm text-foreground">
+                  {item}
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Assurance */}
+          <div>
+            <div className="text-sm text-muted-foreground mb-2">Assurance</div>
+            <div className="flex items-center gap-2 mt-2">
+              <img src="/assets/Assurance.png" alt="Assurance" className="w-8 h-8 object-contain" />
+            </div>
+            <div className="text-sm font-medium text-foreground mt-1">Dommage & Perte</div>
+          </div>
+
+          {/* Reviews (exemple statique) */}
           <div>
             <div className="text-sm text-muted-foreground mb-2">Revues</div>
             <div className="flex items-center gap-2">
@@ -146,41 +148,13 @@ const CarrierDetail = ({ carrier }: CarrierDetailProps) => {
             <div className="text-lg font-bold text-foreground mt-1">5/5</div>
             <div className="text-sm text-primary cursor-pointer mt-1">+53 revues</div>
           </div>
-
-          {/* Assurance */}
-          <div>
-            <div className="text-sm text-muted-foreground mb-2">Assurance</div>
-            <div className="flex items-center gap-2 mt-2">
-  <img
-    src="/assets/Assurance.png" 
-    alt="Assurance"
-    className="w-8 h-8 object-contain"
-  />
-</div>
-
-            <div className="text-sm font-medium text-foreground mt-1">Dommage & Perte</div>
-          </div>
-
-          {/* Accepted Items */}
-          <div>
-            <div className="text-sm text-muted-foreground mb-2">Type de colis accepté</div>
-            <div className="space-y-1 mt-2">
-              {acceptedItems.map((item, index) => (
-                <div key={index} className="text-sm text-foreground">{item}</div>
-              ))}
-            </div>
-          </div>
         </div>
 
         {/* Danger */}
         <div className="bg-warning/10 border border-warning/20 rounded-lg p-4 flex gap-3">
           <AlertTriangle className="w-5 h-5 text-warning flex-shrink-0 mt-0.5" />
           <p className="text-sm text-foreground">
-            Novaship ne peut être tenue responsable du transport de tout objet ou substance 
-            interdit par la loi. Notamment les drogues, armes ou produits illicites. Chaque 
-            utilisateur s'engage à ne pas utiliser Novaship pour le transport de tout objet dont 
-            le contenu ou la nature ne respect pas les lois en vigueur. Novaship se réserve le droit 
-            de cette page portail annuler des sanctions légales.
+            Novaship ne peut être tenue responsable du transport de tout objet ou substance interdit par la loi. Chaque utilisateur s'engage à respecter les lois en vigueur.
           </p>
         </div>
       </div>
