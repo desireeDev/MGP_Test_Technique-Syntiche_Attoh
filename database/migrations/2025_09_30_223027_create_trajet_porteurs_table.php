@@ -1,11 +1,12 @@
 // database/migrations/..._create_trajet_porteurs_table.php
-
+<?php
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
 class CreateTrajetPorteursTable extends Migration
 {
+    //Creation de la table trajet_porteurs
     public function up(): void
     {
         Schema::create('trajet_porteurs', function (Blueprint $table) {
@@ -27,12 +28,12 @@ class CreateTrajetPorteursTable extends Migration
             $table->float('tarif_par_kg', 8, 2);
 
             $table->enum('statut_trajet', ['Ouvert', 'Complet', 'Annulé'])->default('Ouvert');
-            $table->timestamp('date_expiration_offre');
+             $table->timestamp('date_expiration_offre')->nullable();
             $table->timestamp('date_creation')->useCurrent();
             $table->timestamps();
         });
     }
-
+//Suppression de la table trajet_porteurs
     public function down(): void
     {
         Schema::dropIfExists('trajet_porteurs');
