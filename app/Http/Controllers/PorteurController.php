@@ -6,8 +6,9 @@ use App\Services\PorteurService;
 use Illuminate\Http\JsonResponse;
 
 /**
- * Contrôleur pour gérer les porteurs
- * Utilise le PorteurService pour la logique métier
+ * Contrôleur pour exposer les routes API pour les porteurs
+ * GET /porteurs -> liste tous les porteurs
+ * GET /porteurs/{id} -> détail d’un porteur
  */
 class PorteurController extends Controller
 {
@@ -15,12 +16,11 @@ class PorteurController extends Controller
 
     public function __construct(PorteurService $porteurService)
     {
-        // Injection de dépendance du service
         $this->porteurService = $porteurService;
     }
 
     /**
-     * Récupère tous les porteurs
+     * Retourne la liste de tous les porteurs
      *
      * @return JsonResponse
      */
@@ -31,7 +31,7 @@ class PorteurController extends Controller
     }
 
     /**
-     * Récupère un porteur par son ID
+     * Retourne un porteur spécifique par ID
      *
      * @param int $id
      * @return JsonResponse

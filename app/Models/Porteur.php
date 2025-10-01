@@ -13,7 +13,7 @@ class Porteur extends Model
     protected $primaryKey = 'id_utilisateur'; // Clé PK/FK partagée
     public $incrementing = false;
     protected $keyType = 'int';
-    public $timestamps = false; // Pas besoin de created_at/updated_at ici
+    public $timestamps = false; 
 
     protected $fillable = [
         'id_utilisateur', // Doit être fourni lors de la création

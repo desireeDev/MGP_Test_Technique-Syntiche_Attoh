@@ -1,11 +1,8 @@
 <?php
-
 namespace App\DTO;
 
-/**
- * DTO pour l'utilisateur
- * Contient uniquement les données nécessaires à l'API
- */
+use Illuminate\Support\Facades\Storage;
+
 class UserDTO
 {
     public function __construct(
@@ -16,11 +13,6 @@ class UserDTO
         private readonly ?string $photo_profil = null
     ) {}
 
-    /**
-     * Convertit le DTO en tableau pour JSON
-     *  
-     * @return array<string, int|string|null>
-     */
     public function toArray(): array
     {
         return [
@@ -28,7 +20,9 @@ class UserDTO
             'nom' => $this->nom,
             'prenom' => $this->prenom,
             'email' => $this->email,
-            'photo_profil' => $this->photo_profil,
+            'photo_profil' => $this->photo_profil
+                ? Storage::url($this->photo_profil) // <- URL publique
+                : null,
         ];
     }
 }
