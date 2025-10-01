@@ -2,22 +2,32 @@
 
 namespace App\DTO;
 
-// DTO pour les porteurs
-// Définit toutes les données qui seront validées par l'API
+/**
+ * DTO pour un porteur
+ */
 class PorteurDTO
 {
-    public int $id_utilisateur;   // L'utilisateur lié
-    public float $note_moyenne;   // Note moyenne du porteur
-    public int $nombre_avis;      // Nombre d'avis reçus
-    public bool $certifie;        // Si le porteur est certifié
-    public string $statut_porteur;// Actif / Inactif
+    public function __construct(
+        private readonly int $id,
+        private readonly int $user_id,
+        private readonly float $note_moyenne,
+        private readonly int $nombre_avis,
+        private readonly bool $certifie
+    ) {}
 
-    public function __construct(array $data)
+    /**
+     * Retourne les infos du porteur sous forme de tableau
+     *
+     * @return array<string, int|float|bool>
+     */
+    public function toArray(): array
     {
-        $this->id_utilisateur = $data['id_utilisateur'];
-        $this->note_moyenne = $data['note_moyenne'];
-        $this->nombre_avis = $data['nombre_avis'];
-        $this->certifie = $data['certifie'];
-        $this->statut_porteur = $data['statut_porteur'];
+        return [
+            'id' => $this->id,
+            'user_id' => $this->user_id,
+            'note_moyenne' => $this->note_moyenne,
+            'nombre_avis' => $this->nombre_avis,
+            'certifie' => $this->certifie,
+        ];
     }
 }

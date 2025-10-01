@@ -2,24 +2,31 @@
 
 namespace App\DTO;
 
-// DTO pour les avis
-// Définit les données acceptées pour un avis
+/**
+ * DTO pour un avis sur un porteur
+ */
 class AvisDTO
 {
-    public int $id_utilisateur_porteur; // ID du porteur évalué
-    public int $id_evaluateur;          // ID de l'utilisateur qui note
-    public int $id_colis;               // Colis associé
-    public int $note;                   // Note de 1 à 5
-    public string $commentaire;         // Commentaire écrit
-    public string $date_avis;           // Date de l'avis
+    public function __construct(
+        private readonly int $id,
+        private readonly int $id_utilisateur_porteur,
+        private readonly int $id_evaluateur,
+        private readonly int $id_colis,
+        private readonly int $note,
+        private readonly string $commentaire,
+        private readonly string $date_avis
+    ) {}
 
-    public function __construct(array $data)
+    public function toArray(): array
     {
-        $this->id_utilisateur_porteur = $data['id_utilisateur_porteur'];
-        $this->id_evaluateur = $data['id_evaluateur'];
-        $this->id_colis = $data['id_colis'];
-        $this->note = $data['note'];
-        $this->commentaire = $data['commentaire'];
-        $this->date_avis = $data['date_avis'];
+        return [
+            'id' => $this->id,
+            'id_utilisateur_porteur' => $this->id_utilisateur_porteur,
+            'id_evaluateur' => $this->id_evaluateur,
+            'id_colis' => $this->id_colis,
+            'note' => $this->note,
+            'commentaire' => $this->commentaire,
+            'date_avis' => $this->date_avis,
+        ];
     }
 }

@@ -2,25 +2,33 @@
 
 namespace App\DTO;
 
-// DTO pour les utilisateurs
-// Ce DTO définit toutes les données  qui seront validées par l'API
+/**
+ * DTO pour l'utilisateur
+ * Contient uniquement les données nécessaires à l'API
+ */
 class UserDTO
 {
-    public string $nom;          // Nom de l'utilisateur
-    public string $prenom;       // Prénom
-    public string $email;        // Email unique
-    public string $mot_de_passe; // Mot de passe 
-    public ?string $photo_profil; // Chemin relatif vers la photo, facultatif
-    public string $statut_compte; // Actif / Inactif
+    public function __construct(
+        private readonly int $id,
+        private readonly string $nom,
+        private readonly string $prenom,
+        private readonly string $email,
+        private readonly ?string $photo_profil = null
+    ) {}
 
-    // Le constructeur prend un tableau de données (souvent depuis la requête API)
-    public function __construct(array $data)
+    /**
+     * Convertit le DTO en tableau pour JSON
+     *  
+     * @return array<string, int|string|null>
+     */
+    public function toArray(): array
     {
-        $this->nom = $data['nom'];
-        $this->prenom = $data['prenom'];
-        $this->email = $data['email'];
-        $this->mot_de_passe = $data['mot_de_passe'];
-        $this->photo_profil = $data['photo_profil'] ?? null; // facultatif
-        $this->statut_compte = $data['statut_compte'];
+        return [
+            'id' => $this->id,
+            'nom' => $this->nom,
+            'prenom' => $this->prenom,
+            'email' => $this->email,
+            'photo_profil' => $this->photo_profil,
+        ];
     }
 }
