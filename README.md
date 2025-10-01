@@ -103,5 +103,7 @@ BASE_URL = http://localhost:8000/api
 
 <img width="608" height="247" alt="Get_Avis" src="https://github.com/user-attachments/assets/4d7bad2f-6d6a-4d8c-8858-5e210c1d8254" />
 
+#Base de données PhpMyAdmin
+<img width="811" height="244" alt="BD" src="https://github.com/user-attachments/assets/75cd4f56-1a17-444d-a911-41943a350267" />
 
 
