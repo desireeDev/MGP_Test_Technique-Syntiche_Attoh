@@ -18,7 +18,10 @@ class TrajetPorteurDTO
         private readonly string $date_arrivee,
         private readonly float $poids_disponible,
         private readonly float $poids_total_capacite,
-        private readonly float $tarif_par_kg
+        private readonly float $tarif_par_kg,
+        private readonly string $statut_trajet, //  AJOUT
+        private readonly string $date_expiration_offre, //  OBLIGATOIRE maintenant
+        private readonly string $date_creation //  AJOUT
     ) {}
 
     public function toArray(): array
@@ -35,6 +38,9 @@ class TrajetPorteurDTO
             'poids_disponible' => $this->poids_disponible,
             'poids_total_capacite' => $this->poids_total_capacite,
             'tarif_par_kg' => $this->tarif_par_kg,
+            'statut_trajet' => $this->statut_trajet,
+            'date_expiration_offre' => $this->date_expiration_offre,
+            'date_creation' => $this->date_creation,
         ];
     }
 }
