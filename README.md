@@ -87,3 +87,9 @@ php artisan serve
 
 ```
 BASE_URL = http://localhost:8000/api
+
+#Un apercu de quelques tables essentielles
+<img width="608" height="286" alt="Apercu" src="https://github.com/user-attachments/assets/d8eeac61-7dcd-46e6-ba02-5626782e193d" />
+
+
+
