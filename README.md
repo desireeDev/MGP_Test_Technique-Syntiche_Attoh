@@ -87,3 +87,21 @@ php artisan serve
 
 ```
 BASE_URL = http://localhost:8000/api
+
+```
+
+
+#Un apercu de quelques tables essentielles
+
+<img width="608" height="286" alt="Apercu" src="https://github.com/user-attachments/assets/d8eeac61-7dcd-46e6-ba02-5626782e193d" />
+
+#La disposition des Api sur Postman
+
+
+<img width="692" height="181" alt="Avis" src="https://github.com/user-attachments/assets/c83b36b2-c6c0-4bfb-ade2-27cebc031c73" />
+
+
+<img width="608" height="247" alt="Get_Avis" src="https://github.com/user-attachments/assets/4d7bad2f-6d6a-4d8c-8858-5e210c1d8254" />
+
+
+
