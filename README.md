@@ -222,8 +222,12 @@ const [filteredCarriers, setFilteredCarriers] = useState<CarrierDisplay[]>([]); 
 ```
 
 ---
+🐳 Dockerisation (Prochaine étape)
 
+Objectif
+Conteneuriser l'application pour un déploiement facile et consistent.
 
+Auteur:Syntiche Désirée Attoh
 
 
 
