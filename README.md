@@ -1,9 +1,15 @@
+Note pour le frontend
+
+👉 Si vous voulez lancer le frontend et voir les données affichées correctement,
+il faut également démarrer le backend (Laravel API).
+
+Sans le backend, l’interface va s’ouvrir mais… les données resteront désespérément vides 🚫📊.
 
 🌐 MondialGP – Plateforme de mise en relation pour l’envoi de colis
 
 MondialGP connecte les **expéditeurs** avec des **voyageurs disposant d’espace dans leurs bagages** pour des envois internationaux rapides, sécurisés et économiques.
 
----
+
 
 ## 🛠 Technologies utilisées
 
@@ -167,6 +173,8 @@ const uniqueDestinations = [...new Set(trajets.map(t => t.ville_destination))];
 
 ---
 
+
+
 ## **6. 🚨 ERREUR : Bouton "Rechercher" sans feedback visuel**
 
 ### **Problème :**
@@ -226,6 +234,25 @@ const [filteredCarriers, setFilteredCarriers] = useState<CarrierDisplay[]>([]); 
 
 Objectif
 Conteneuriser l'application pour un déploiement facile et consistent.
+
+# 🧪 Tests Frontend – React (Futur)
+
+## Contexte
+
+Pour le moment, **aucun test frontend n’est en place**.
+Mais dans le futur, l’objectif est d’intégrer une vraie stratégie de tests pour renforcer la qualité du code.
+
+---
+## Outils prévus
+
+* **Jest** : framework de test standard pour React.
+* **React Testing Library (RTL)** : pour tester les composants en simulant des interactions réelles.
+
+---
+
+---
+ Les tests frontend ne sont pas encore implémentés, mais ils sont prévus pour garantir un projet plus robuste et fiable.
+
 
 Auteur:Syntiche Désirée Attoh
 
