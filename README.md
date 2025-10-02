@@ -12,6 +12,13 @@ Devenez porteur et gagnez de l’argent en utilisant l’espace libre de vos bag
 
 MondialGP simplifie les envois internationaux tout en créant des opportunités pour les voyageurs 🌐✨.
 
+Design Initial Début
+
+<img width="631" height="376" alt="Design" src="https://github.com/user-attachments/assets/775b9d69-ad4b-4acc-ab50-f4e4622934fa" />
+
+Design Initial Fin
+
+
 
 <img width="953" height="527" alt="P1" src="https://github.com/user-attachments/assets/6d30b21c-c9ab-447e-9785-6bc4c362cfbe" />
 
