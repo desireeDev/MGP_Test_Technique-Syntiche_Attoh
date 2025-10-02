@@ -1,4 +1,5 @@
 import { Star, Package, Clock } from "lucide-react";
+//CarrierCard.tsx est le composant qui rend VISIBLE chaque porteur sur l'application.
 //Cards pour les porteurs typées en raison de TypeScript
 interface CarrierCardProps {
   name: string;

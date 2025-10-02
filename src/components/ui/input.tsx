@@ -2,6 +2,13 @@ import * as React from "react";
 
 import { cn } from "@/lib/utils";
 
+/**
+ * COMPOSANT INPUT UNIFORME
+ * 
+ * Garantit que tous les champs de saisie dans l'application
+ * aient la même apparence et le même comportement en d'autres termes le même style.
+ * 
+ */
 const Input = React.forwardRef<HTMLInputElement, React.ComponentProps<"input">>(
   ({ className, type, ...props }, ref) => {
     return (

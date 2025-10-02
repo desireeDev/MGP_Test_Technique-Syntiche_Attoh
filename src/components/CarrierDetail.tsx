@@ -1,4 +1,5 @@
 // src/components/CarrierDetail.tsx
+//CarrierDetail.tsx est la FICHE D'IDENTITÉ complète du porteur sélectionné.
 import { Star, AlertTriangle, Clock } from "lucide-react";
 import { Button } from "@/components/ui/button";
 

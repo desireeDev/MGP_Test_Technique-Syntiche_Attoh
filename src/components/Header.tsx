@@ -1,8 +1,8 @@
 import { Bell, MessageSquare } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
-import BecomeCarrierModal from "./BecomeCarrierModal";
 
+//Component Header de l'application
 const Header = () => {
   const [showCarrierModal, setShowCarrierModal] = useState(false);
 //Page retournée
@@ -68,10 +68,6 @@ const Header = () => {
         </div>
       </header>
 
-      <BecomeCarrierModal
-        open={showCarrierModal}
-        onOpenChange={setShowCarrierModal}
-      />
     </>
   );
 };
