@@ -317,7 +317,7 @@ const Index = () => {
             </div>
           </div>
         </main>
-        
+        //
         <Footer />
       </div>
     );
@@ -362,9 +362,7 @@ const Index = () => {
                   )}
                 </div>
                 
-                <button className="flex items-center gap-2 text-sm font-medium text-foreground hover:text-primary transition-colors">
-                  Trier par <ChevronDown className="w-4 h-4" />
-                </button>
+               <div className="flex items-center gap-2"> <span className="text-sm text-foreground">Trier par :</span> <div className="flex items-center gap-2 border rounded-lg px-3 py-1 cursor-pointer hover:bg-muted transition"> <span className="text-sm font-medium text-foreground"> Tous les porteurs </span> <ChevronDown className="w-4 h-4 text-muted-foreground" /> </div> </div>
               </div>
               
               {/* Liste des cartes porteurs */}
