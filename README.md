@@ -20,7 +20,8 @@ Design Initial Fin
 
 
 
-<img width="953" height="527" alt="P1" src="https://github.com/user-attachments/assets/6d30b21c-c9ab-447e-9785-6bc4c362cfbe" />
+<img width="956" height="499" alt="PageF" src="https://github.com/user-attachments/assets/664aa9a8-e4e7-49c0-96cb-98990fa6e976" />
+
 
 <img width="952" height="452" alt="P3" src="https://github.com/user-attachments/assets/3c88cecc-fd7e-45e9-aa79-a034c2cfcdab" />
 
