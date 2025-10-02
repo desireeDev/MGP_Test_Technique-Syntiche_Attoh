@@ -11,7 +11,7 @@ MondialGP connecte les **expéditeurs** avec des **voyageurs disposant d’espac
 * **TypeScript** – Code plus sûr et lisible
 * **React** – Construction de l’interface utilisateur
 * **Tailwind CSS** – Mise en page moderne et responsive
-* **shadcn-ui** – Composants UI élégants et réutilisables
+
 
 ---
 
