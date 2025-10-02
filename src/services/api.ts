@@ -122,7 +122,7 @@ export const getTypeColisByTrajet = async (id_trajet: number): Promise<string[]>
     const response = await api.get(`/trajets/${id_trajet}/types-colis`);
     console.log(`Types de colis pour trajet ${id_trajet}:`, response.data);
     
-    // On suppose que l'API renvoie un tableau de { nom_type: string }
+    // l'API renvoie un tableau de { nom_type: string }just a supposition
     if (Array.isArray(response.data)) {
       return response.data.map((t: any) => t.nom_type || t.name || String(t));
     }

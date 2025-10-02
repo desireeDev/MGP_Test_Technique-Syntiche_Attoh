@@ -25,10 +25,10 @@ export interface Porteur extends User{
   pays_destination_habituel?: string;
 }
 
-// --- Trajet Poteur ---
+// --- Trajet Porteur ---
 export interface TrajetPorteur {
   id_trajet: number;
-  id_utilisateur: number;
+  user_id: number;
   ville_depart: string;
   code_pays_depart: string;
   ville_destination: string;
@@ -96,7 +96,6 @@ export interface Carrier {
   arrivalDate: string;
   avatar: string;
   price: string;
-   // Nouveau champ pour la certification
 }
 export interface TypeColis {
   id_type_colis: number;

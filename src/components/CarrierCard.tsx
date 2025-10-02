@@ -29,6 +29,18 @@ const CarrierCard = ({
   isActive = false,
   onClick
 }: CarrierCardProps) => {
+  // 🔹 Debug : afficher toutes les données reçues
+  console.log("🎯 CarrierCard props:", {
+    name,
+    certification,
+    rating,
+    reviews,
+    capacity,
+    expiresIn,
+    arrivalDate,
+    certifie,
+    moisCertification
+  });
   return (
     <div
       onClick={onClick}
