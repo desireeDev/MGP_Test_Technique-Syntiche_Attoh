@@ -1,14 +1,13 @@
-//Commonent SearchForùm.tsx est le formulaire de recherche de porteurs.
 import { MapPin, Calendar, Package, Search } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 // Définition des types pour les données de recherche
 interface SearchFormProps {
-  onSearch?: (data: SearchData) => void; // callback facultatif pour renvoyer les données
-  availableDestinations?: string[];     // Liste des destinations disponibles depuis la BD
-  availableDepartures?: string[];       // Liste des départs disponibles depuis la BD
+  onSearch?: (data: SearchData) => void;
+  availableDestinations?: string[];
+  availableDepartures?: string[];
 }
 
 export interface SearchData {
@@ -20,11 +19,27 @@ export interface SearchData {
 
 // Composant fonctionnel avec hooks pour gérer l'état des inputs
 const SearchForm = ({ onSearch, availableDestinations = [], availableDepartures = [] }: SearchFormProps) => {
-  // États pour chaque champ avec valeurs par défaut vides
   const [departure, setDeparture] = useState("");
   const [destination, setDestination] = useState("");
   const [date, setDate] = useState("");
   const [weight, setWeight] = useState("");
+  const [displayDate, setDisplayDate] = useState("");
+  const dateInputRef = useRef<HTMLInputElement>(null);
+
+  // 🔹 Formate la date en français "02 Décembre"
+  const formatDateForDisplay = (dateString: string): string => {
+    if (!dateString) return "";
+    
+    const date = new Date(dateString);
+    if (isNaN(date.getTime())) return "";
+    
+    // Format "02 Décembre" (sans année)
+    const day = date.getDate().toString().padStart(2, '0');
+    const month = date.toLocaleDateString('fr-FR', { month: 'long' });
+    const capitalizedMonth = month.charAt(0).toUpperCase() + month.slice(1);
+    
+    return `${day} ${capitalizedMonth}`;
+  };
 
   // 🔹 Initialise les valeurs avec les premières options disponibles
   useEffect(() => {
@@ -39,7 +54,9 @@ const SearchForm = ({ onSearch, availableDestinations = [], availableDepartures 
     if (!date) {
       const nextWeek = new Date();
       nextWeek.setDate(nextWeek.getDate() + 7);
-      setDate(nextWeek.toISOString().split('T')[0]);
+      const defaultDate = nextWeek.toISOString().split('T')[0];
+      setDate(defaultDate);
+      setDisplayDate(formatDateForDisplay(defaultDate));
     }
     
     // Poids par défaut
@@ -48,10 +65,23 @@ const SearchForm = ({ onSearch, availableDestinations = [], availableDepartures 
     }
   }, [availableDepartures, availableDestinations, departure, destination, date, weight]);
 
+  // 🔹 Gère le changement de date
+  const handleDateChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const newDate = e.target.value;
+    setDate(newDate);
+    setDisplayDate(formatDateForDisplay(newDate));
+  };
+
+  // 🔹 CORRECTION : Ouvre le date picker avec useRef
+  const handleDisplayDateClick = () => {
+    if (dateInputRef.current) {
+      dateInputRef.current.showPicker();
+    }
+  };
+
   // Fonction pour gérer le clic sur le bouton de recherche
   const handleSearch = () => {
     if (onSearch) {
-      // Envoie des données structurées
       onSearch({ departure, destination, date, weight });
     }
   };
@@ -107,19 +137,33 @@ const SearchForm = ({ onSearch, availableDestinations = [], availableDepartures 
           </select>
         </div>
 
-        {/* Départ souhaité */}
+        {/* Départ souhaité - FORMAT "02 Décembre" */}
         <div className="space-y-2">
           <label className="text-sm text-muted-foreground flex items-center gap-2">
             <Calendar className="w-4 h-4" />
             Départ souhaité
           </label>
-          <Input
+          
+          {/* Input caché pour le date picker avec ref */}
+          <input
+            ref={dateInputRef}
             type="date"
             value={date}
-            onChange={(e) => setDate(e.target.value)}
-            className="font-semibold"
-            min={new Date().toISOString().split('T')[0]} // Pas de dates passées
+            onChange={handleDateChange}
+            className="hidden"
+            min={new Date().toISOString().split('T')[0]}
           />
+          
+          {/* Input d'affichage stylisé avec format "02 Décembre" */}
+          <div 
+            onClick={handleDisplayDateClick}
+            className="w-full p-3 border border-border rounded-md font-semibold bg-background cursor-pointer hover:bg-muted/50 transition-colors flex items-center justify-between"
+          >
+            <span className={displayDate ? "text-foreground text-base" : "text-muted-foreground"}>
+              {displayDate || "Sélectionner une date"}
+            </span>
+            <Calendar className="w-4 h-4 text-muted-foreground" />
+          </div>
         </div>
 
         {/* Poids */}
@@ -143,7 +187,7 @@ const SearchForm = ({ onSearch, availableDestinations = [], availableDepartures 
         <Button 
           onClick={handleSearch}
           className="w-full h-12 bg-primary hover:bg-primary/90 text-primary-foreground font-medium rounded-3xl"
-          disabled={!departure || !destination} // Désactivé si pas de départ/destination
+          disabled={!departure || !destination}
         >
           <Search className="w-5 h-5 mr-2" />
           Rechercher un porteur
