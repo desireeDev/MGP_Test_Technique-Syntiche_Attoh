@@ -1,5 +1,5 @@
 import { Star, Package, Clock } from "lucide-react";
-
+//Cards pour les porteurs typées en raison de TypeScript
 interface CarrierCardProps {
   name: string;
   certification: string;
@@ -14,7 +14,7 @@ interface CarrierCardProps {
   isActive?: boolean;   
   onClick?: () => void; 
 }
-
+// Composant CarrierCard affichant des constantes non modifiables
 const CarrierCard = ({
   name,
   certification,
@@ -41,6 +41,7 @@ const CarrierCard = ({
     certifie,
     moisCertification
   });
+  // Rendu du composant
   return (
     <div
       onClick={onClick}
