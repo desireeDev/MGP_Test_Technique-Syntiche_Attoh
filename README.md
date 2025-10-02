@@ -107,4 +107,24 @@ BASE_URL = http://localhost:8000/api
 #Base de données PhpMyAdmin
 <img width="811" height="244" alt="BD" src="https://github.com/user-attachments/assets/75cd4f56-1a17-444d-a911-41943a350267" />
 
+📌 Projet – Vers une architecture microservices
+Contexte
+
+Actuellement, le projet est développé sous Laravel avec une architecture monolithique.
+Les controllers appellent des services internes pour organiser la logique métier (Users, Porteurs, Trajets, Avis).
+
+Bien que cela améliore la lisibilité et la maintenabilité du code, ce n’est pas une architecture microservices.
+
+Objectif
+
+L’objectif est de préparer le projet pour évoluer vers une architecture microservices, afin de bénéficier de :
+
+Déploiement indépendant des services.
+
+Scalabilité des modules critiques (Trajets, Porteurs, Users, Avis).
+
+Indépendance technologique pour chaque service si nécessaire.
+
+Meilleure organisation pour tests et seeds isolés.
+
 
