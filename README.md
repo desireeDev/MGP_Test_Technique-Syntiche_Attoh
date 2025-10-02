@@ -1,9 +1,15 @@
+Note pour le frontend
+
+👉 Si vous voulez lancer le frontend et voir les données affichées correctement,
+il faut également démarrer le backend (Laravel API).
+
+Sans le backend, l’interface va s’ouvrir mais… les données resteront désespérément vides 🚫📊.
 
 🌐 MondialGP – Plateforme de mise en relation pour l’envoi de colis
 
 MondialGP connecte les **expéditeurs** avec des **voyageurs disposant d’espace dans leurs bagages** pour des envois internationaux rapides, sécurisés et économiques.
 
----
+
 
 ## 🛠 Technologies utilisées
 
