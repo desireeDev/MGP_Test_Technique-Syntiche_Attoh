@@ -129,4 +129,15 @@ On vise à préparer le terrain pour une architecture microservices, afin de pro
 
 Cette vision permettra au projet de grandir sans douleur et de rester flexible pour l’avenir.
 
+🧪 Tests Backend – Laravel (Futur)
+Contexte
+
+Pour l’instant, aucun test n’est implémenté côté backend.
+L’idée est de mettre en place une stratégie de tests afin de garantir la fiabilité et la stabilité des fonctionnalités.
+
+Outils prévus
+
+PHPUnit : framework de test intégré à Laravel.
+Laravel Test Helpers : pour tester facilement les routes, modèles et contrôleurs.
+PestPHP (optionnel) : une alternative moderne et expressive à PHPUnit, compatible avec Laravel.
 
