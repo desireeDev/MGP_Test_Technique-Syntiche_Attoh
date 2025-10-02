@@ -10,7 +10,7 @@ Backend Laravel pour gérer les utilisateurs, colis, porteurs, avis et trajets v
 1. Cloner le dépôt :
 
 ```bash
-git clone <url_du_repo>
+git clone <https://github.com/desireeDev/MGP_Test_Technique-Syntiche_Attoh.git>
 cd backendMondialGP
 ```
 
