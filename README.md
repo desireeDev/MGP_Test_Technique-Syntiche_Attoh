@@ -37,7 +37,12 @@ php artisan migrate:fresh --seed
 
 ## Architecture
 
+<<<<<<< HEAD
 * **DTOs** : Normalisent les données pour l’API (`UserDTO`, `ColisDTO`, etc.), chaque DTO a `toArray() `afin de garantir l'affichage.
+=======
+* **Models** : Lees tables de notre bases de donnees (`User`, `Colis`, etc.).
+* **DTOs** : Normalisent les données pour l’API (`UserDTO`, `ColisDTO`, etc.), chaque DTO a `toArray()`.
+>>>>>>> 8aeb0ec221ad264bd41def1342d512de8b9d4a6a
 * **Services** : Logique métier, utilisent les DTO (`UserService`, `ColisService`, etc.).
 * **Controllers** : Appellent les services et renvoient des JSON.
 * **Routes** : Toutes les routes sont définies dans `routes/api.php`.
@@ -103,5 +108,40 @@ BASE_URL = http://localhost:8000/api
 
 <img width="608" height="247" alt="Get_Avis" src="https://github.com/user-attachments/assets/4d7bad2f-6d6a-4d8c-8858-5e210c1d8254" />
 
+#Base de données PhpMyAdmin
+<img width="811" height="244" alt="BD" src="https://github.com/user-attachments/assets/75cd4f56-1a17-444d-a911-41943a350267" />
 
+📌 Projet – Cap sur les Microservices ! 🚀
+Contexte
+
+Aujourd’hui, notre projet Laravel tourne comme un monolithe bien huilé :
+les controllers appellent des services internes pour gérer la logique métier (Users, Porteurs, Trajets, Avis).
+
+C’est propre, organisé et ça fonctionne… mais ce n’est pas encore du microservices.
+
+Objectif 🎯
+
+On vise à préparer le terrain pour une architecture microservices, afin de profiter de tous ses super-pouvoirs :
+
+⚡ Déploiement indépendant : chaque module peut évoluer et être déployé sans bloquer les autres.
+
+📈 Scalabilité : Trajets, Porteurs, Users et Avis peuvent grandir sans limite.
+
+🛠️ Liberté technologique : chaque service peut utiliser le framework ou langage le plus adapté.
+
+🧪 Tests et seeds isolés : plus simple de générer et tester des données pour chaque service.
+
+Cette vision permettra au projet de grandir sans douleur et de rester flexible pour l’avenir.
+
+🧪 Tests Backend – Laravel (Futur)
+Contexte
+
+Pour l’instant, aucun test n’est implémenté côté backend.
+L’idée est de mettre en place une stratégie de tests afin de garantir la fiabilité et la stabilité des fonctionnalités.
+
+Outils prévus
+
+PHPUnit : framework de test intégré à Laravel.
+Laravel Test Helpers : pour tester facilement les routes, modèles et contrôleurs.
+PestPHP (optionnel) : une alternative moderne et expressive à PHPUnit, compatible avec Laravel.
 
