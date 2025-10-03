@@ -11,7 +11,7 @@ use Illuminate\Http\JsonResponse;
 class AvisController extends Controller
 {
     private AvisService $avisService;
-
+//Injection de dépendance du service AvisService par constructeur
     public function __construct(AvisService $avisService)
     {
         $this->avisService = $avisService;

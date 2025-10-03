@@ -1,7 +1,7 @@
 <?php
-
+//Le Namespace vient dire que le dossier User est dans Models
 namespace App\Models;
-
+//Les relations nécessaires pour les relations entre les tables
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -14,7 +14,7 @@ class User extends Authenticatable
     protected $table = 'utilisateurs';
     protected $primaryKey = 'id_utilisateur';
     public $incrementing = true; // Si l'ID est auto-incrémenté
-
+//Fillabke pour dire quels champs peuvent être remplis en masse
     protected $fillable = [
         'nom',
         'prenom',

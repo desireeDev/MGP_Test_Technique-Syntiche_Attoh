@@ -10,7 +10,7 @@ Backend Laravel pour gérer les utilisateurs, colis, porteurs, avis et trajets v
 1. Cloner le dépôt :
 
 ```bash
-git clone <url_du_repo>
+git clone <https://github.com/desireeDev/MGP_Test_Technique-Syntiche_Attoh.git>
 cd backendMondialGP
 ```
 
@@ -37,7 +37,7 @@ php artisan migrate:fresh --seed
 
 ## Architecture
 
-* **DTOs** : Normalisent les données pour l’API (`UserDTO`, `ColisDTO`, etc.), chaque DTO a `toArray()`.
+* **DTOs** : Normalisent les données pour l’API (`UserDTO`, `ColisDTO`, etc.), chaque DTO a `toArray() `afin de garantir l'affichage.
 * **Services** : Logique métier, utilisent les DTO (`UserService`, `ColisService`, etc.).
 * **Controllers** : Appellent les services et renvoient des JSON.
 * **Routes** : Toutes les routes sont définies dans `routes/api.php`.

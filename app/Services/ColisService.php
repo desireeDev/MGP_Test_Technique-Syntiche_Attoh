@@ -51,28 +51,29 @@ class ColisService
      * @return ColisDTO[]
      */
     public function getAll(): array
-    {
-        return Colis::all()->map(function ($colis) {
-            return new ColisDTO(
-                $colis->id_colis,
-                $colis->id_expediteur,
-                $colis->id_trajet,
-                $colis->id_type_colis,
-                $colis->ville_depart,
-                $colis->pays_depart,
-                $colis->ville_destination,
-                $colis->pays_destination,
-                $colis->adresse_livraison,
-                $colis->nom_destinataire,
-                $colis->telephone_destinataire,
-                $colis->poids,
-                $colis->description,
-                $colis->montant_total,
-                $colis->statut_colis,
-                $colis->date_creation,
-                $colis->date_livraison_reelle,
-                $colis->code_suivi
-            );
-        })->toArray();
-    }
+{
+    return Colis::all()->map(function ($colis) {
+        return (new ColisDTO(
+            $colis->id_colis,
+            $colis->id_expediteur,
+            $colis->id_trajet,
+            $colis->id_type_colis,
+            $colis->ville_depart,
+            $colis->pays_depart,
+            $colis->ville_destination,
+            $colis->pays_destination,
+            $colis->adresse_livraison,
+            $colis->nom_destinataire,
+            $colis->telephone_destinataire,
+            $colis->poids,
+            $colis->description,
+            $colis->montant_total,
+            $colis->statut_colis,
+            $colis->date_creation,
+            $colis->date_livraison_reelle,
+            $colis->code_suivi
+        ))->toArray(); // <-- important !
+    })->toArray();
+}
+
 }
