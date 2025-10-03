@@ -47,7 +47,7 @@ const Index = () => {
   const [error, setError] = useState<string>("");                           // Message d'erreur
   const [availableDepartures, setAvailableDepartures] = useState<string[]>([]);   // Villes de départ uniques
   const [availableDestinations, setAvailableDestinations] = useState<string[]>([]); // Villes de destination uniques
-  const [isSearching, setIsSearching] = useState<boolean>(false);           // 🔥 État pour le feedback de recherche
+  const [isSearching, setIsSearching] = useState<boolean>(false);           //  État pour le feedback de recherche
 
   /* -------------------------------
      EFFET POUR RÉCUPÉRER LES DONNÉES AU CHARGEMENT
@@ -65,10 +65,10 @@ const Index = () => {
         // --- EXTRACTION DES VILLES UNIQUES POUR LE FORMULAIRE ---
         const uniqueDepartures = [...new Set(trajets.map(t => t.ville_depart))];
         const uniqueDestinations = [...new Set(trajets.map(t => t.ville_destination))];
-        
+        // Mise à jour des états
         setAvailableDepartures(uniqueDepartures);
         setAvailableDestinations(uniqueDestinations);
-
+//Use pour debug
         console.log("🏙️ Villes de départ disponibles:", uniqueDepartures);
         console.log("🏙️ Villes de destination disponibles:", uniqueDestinations);
 
@@ -144,9 +144,7 @@ const Index = () => {
      FONCTION DE RECHERCHE ET FILTRAGE AVEC FEEDBACK VISUEL
   --------------------------------*/
   const handleSearch = (data: SearchData) => {
-    console.log("🔍 Recherche effectuée:", data);
-    
-    // 🔥 Activation du feedback visuel
+    // Activation du feedback visuel
     setIsSearching(true);
     
     // Petit délai pour améliorer l'UX (le filtrage est instantané mais on veut que l'utilisateur voie le feedback)
@@ -186,7 +184,7 @@ const Index = () => {
     }, 300); // Petit délai de 300ms pour que l'utilisateur voie le feedback
   };
 
-  // 🔥Fonction pour réinitialiser la recherche et voir tous les porteurs
+  // Fonction pour réinitialiser la recherche et voir tous les porteurs
   const resetSearch = () => {
     setFilteredCarriers(allCarriers);
     if (allCarriers.length > 0) {
@@ -265,7 +263,6 @@ const Index = () => {
       
       {/* En-tête de l'application */}
       <Header />
-
       <main className="flex-1">
         <div className="container mx-auto px-4 py-8">
           
