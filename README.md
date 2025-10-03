@@ -41,7 +41,6 @@ php artisan migrate:fresh --seed
 =======
 * **Models** : Lees tables de notre bases de donnees (`User`, `Colis`, etc.).
 * **DTOs** : Normalisent les données pour l’API (`UserDTO`, `ColisDTO`, etc.), chaque DTO a `toArray()`.
->>>>>>> 8aeb0ec221ad264bd41def1342d512de8b9d4a6a
 * **Services** : Logique métier, utilisent les DTO (`UserService`, `ColisService`, etc.).
 * **Controllers** : Appellent les services et renvoient des JSON.
 * **Routes** : Toutes les routes sont définies dans `routes/api.php`.
