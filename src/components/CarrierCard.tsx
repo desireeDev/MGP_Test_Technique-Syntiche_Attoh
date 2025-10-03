@@ -44,7 +44,7 @@ const CarrierCard = ({
   return (
     <div
       onClick={onClick}
-      className={`relative p-4 rounded-lg border cursor-pointer transition-all hover:shadow-md bg-white ${
+      className={`relative p-4 rounded-lg border cursor-pointer transition-all hover:shadow-md bg-card ${
         isActive ? 'border-blue-500' : 'border-gray-200'
       }`}
     >
