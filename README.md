@@ -37,7 +37,6 @@ php artisan migrate:fresh --seed
 
 ## Architecture
 
-<<<<<<< HEAD
 * **DTOs** : Normalisent les données pour l’API (`UserDTO`, `ColisDTO`, etc.), chaque DTO a `toArray() `afin de garantir l'affichage.
 =======
 * **Models** : Lees tables de notre bases de donnees (`User`, `Colis`, etc.).
