@@ -12,7 +12,7 @@ import { ChevronDown } from "lucide-react";
    Interface pour l'affichage frontend
    Transforme les données brutes du backend en format utilisable par l'UI
 --------------------------------*/
-interface CarrierDisplay {
+export  interface CarrierDisplay {
   id: number;                  // ID unique du porteur
   name: string;                // Nom complet formaté "Prénom Nom"
   certification: string;       // Statut "Certifié +X mois" ou "Nouveau"
@@ -381,10 +381,7 @@ const Index = () => {
             <div className="xl:sticky xl:top-24 h-fit">
               {selectedCarrierData && (
                 <CarrierDetail 
-                  carrier={{ 
-                    ...selectedCarrierData, 
-                    price: String(selectedCarrierData.price) 
-                  }} 
+                  carrier={selectedCarrierData}
                 />
               )}
             </div>

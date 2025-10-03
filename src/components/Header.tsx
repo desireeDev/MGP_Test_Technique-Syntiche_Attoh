@@ -4,6 +4,7 @@ import { useState } from "react";
 
 //Component Header de l'application
 const Header = () => {
+  //Say that le model est caché par defaut
   const [showCarrierModal, setShowCarrierModal] = useState(false);
 //Page retournée
   return (

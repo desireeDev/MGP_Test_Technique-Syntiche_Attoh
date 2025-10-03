@@ -1,5 +1,6 @@
 import { Star, Package } from "lucide-react";
-
+//Définit les propriétés attendues pour le composant CarrierCard et typéés
+//So les propriétés are useful and obligatoire .
 interface CarrierCardProps {
   name: string;
   certification: string;
@@ -14,7 +15,8 @@ interface CarrierCardProps {
   isActive?: boolean;
   onClick?: () => void;
 }
-
+//Composant pour afficher une carte récapitulative d'un porteur
+//Destructuration des props pour une utilisation facile
 const CarrierCard = ({
   name,
   certification,
@@ -29,7 +31,8 @@ const CarrierCard = ({
   isActive = false,
   onClick
 }: CarrierCardProps) => {
-  console.log("🎯 CarrierCard props:", {
+  //Régler quelques logs pour le debug
+  console.log(" CarrierCard props:", {
     name,
     certification,
     rating,
@@ -59,7 +62,7 @@ const CarrierCard = ({
         {/* Avatar avec badge */}
         <div className="relative flex-shrink-0">
           <div className="w-12 h-12 rounded-full overflow-hidden">
-            <img src={avatar} alt={name} className="w-full h-full object-cover" />
+            <img src={avatar} alt="" className="w-full h-full object-cover" />
           </div>
           {certifie && (
             <div className="absolute -bottom-1 -right-1 w-5 h-5 bg-blue-500 rounded-full flex items-center justify-center">
