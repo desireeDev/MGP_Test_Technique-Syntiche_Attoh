@@ -20,7 +20,7 @@ Design Initial Fin
 
 
 
-<img width="956" height="499" alt="PageF" src="https://github.com/user-attachments/assets/664aa9a8-e4e7-49c0-96cb-98990fa6e976" />
+<img width="950" height="566" alt="MaPage" src="https://github.com/user-attachments/assets/9ef957b5-05b7-47c5-9cee-e4a7587cd04e" />
 
 
 <img width="952" height="452" alt="P3" src="https://github.com/user-attachments/assets/3c88cecc-fd7e-45e9-aa79-a034c2cfcdab" />
