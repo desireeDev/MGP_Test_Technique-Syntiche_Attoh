@@ -352,10 +352,10 @@ const Index = () => {
                     {filteredCarriers.length} Résultat{filteredCarriers.length > 1 ? 's' : ''} trouvé{filteredCarriers.length > 1 ? 's' : ''}
                   </h2>
                   
-                  {/* 🔥 INDICATEUR DE RECHERCHE EN COURS */}
+                  {/* INDICATEUR DE RECHERCHE EN COURS */}
                   {isSearching && (
-                    <span className="flex items-center gap-2 px-3 py-1 bg-blue-100 text-blue-700 text-sm rounded-full animate-pulse">
-                      <div className="w-2 h-2 bg-blue-600 rounded-full"></div>
+                    <span className="flex items-center gap-2 px-3 py-1 bg-blue-100 text-blue-800 text-sm rounded-full animate-pulse">
+                      <div className="w-2 h-2 bg-blue-700 rounded-full"></div>
                       Recherche...
                     </span>
                   )}

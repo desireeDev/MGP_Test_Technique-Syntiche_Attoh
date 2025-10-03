@@ -200,7 +200,7 @@ const SearchForm = ({ onSearch, availableDestinations = [], availableDepartures 
         {/* Bouton de recherche - EN DEHORS de la pillule */}
         <Button 
           onClick={handleSearch}
-          className="h-12 px-6 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-full flex items-center gap-2 whitespace-nowrap flex-shrink-0"
+          className="h-12 px-6 bg-blue-700 hover:bg-blue-700 text-white font-medium rounded-full flex items-center gap-2 whitespace-nowrap flex-shrink-0"
           disabled={!departure || !destination}
         >
           <Search className="w-4 h-4" />
