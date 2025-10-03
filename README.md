@@ -19,8 +19,9 @@ Design Initial Début
 Design Initial Fin
 
 
+<img width="949" height="518" alt="Legere_Ressemblance_Now" src="https://github.com/user-attachments/assets/d0b13076-6324-436e-a617-efb9364c78bb" />
 
-<img width="950" height="566" alt="MaPage" src="https://github.com/user-attachments/assets/9ef957b5-05b7-47c5-9cee-e4a7587cd04e" />
+
 
 
 <img width="957" height="492" alt="Infos_Personnels" src="https://github.com/user-attachments/assets/445926e2-f83d-458f-9d55-c0ef853610e9" />
