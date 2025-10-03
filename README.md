@@ -25,9 +25,9 @@ Design Initial Fin
 
 <img width="946" height="531" alt="P4" src="https://github.com/user-attachments/assets/a2291fef-106a-4691-b8f4-8e8e91a7a08b" />
 
-
-
 <img width="942" height="388" alt="Dubois" src="https://github.com/user-attachments/assets/6199bf1d-7ef6-4502-93c1-62cc22cc0eee" />
 
-https://github.com/user-attachments/assets/f05b9ff1-5dcf-49f1-bf89-2cabee626db1
+#Extrait de la vidéo
+
+https://github.com/user-attachments/assets/4f97d5e5-b1d8-4c0d-b26f-9424023250b8
 
