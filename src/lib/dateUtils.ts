@@ -1,4 +1,4 @@
-// utils/conversionDate.ts
+// utils/dateUtils.ts
 
 /**
  * Calcule le temps restant avant expiration d'une offre
