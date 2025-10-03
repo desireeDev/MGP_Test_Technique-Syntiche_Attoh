@@ -7,6 +7,7 @@ import CarrierCard from "@/components/CarrierCard";
 import CarrierDetail from "@/components/CarrierDetail";
 import Footer from "@/components/Footer";
 import { ChevronDown } from "lucide-react";
+import { calculateTimeRemaining, formatDateFR, formatDateShortFR } from "@/lib/dateUtils";
 
 /* -------------------------------
    Interface pour l'affichage frontend
@@ -33,70 +34,6 @@ export  interface CarrierDisplay {
   dateDepartRaw: string;       // Date départ formatée "17 novembre 2024"
   dateArriveeRaw: string;      // Date arrivée formatée "17 novembre 2024"
 }
-
-/* -------------------------------
-   FONCTIONS UTILITAIRES
---------------------------------*/
-
-/**
- * Calcule le temps restant avant expiration d'une offre
- * @param expirationDate - Date d'expiration au format string
- * @returns Temps restant formaté "Xjrs : Yh" ou "Expiré" ou "N/A"
- */
-const calculateTimeRemaining = (expirationDate: string): string => {
-  // Vérification de la validité de la date
-  if (!expirationDate || expirationDate === "Ouvert" || isNaN(new Date(expirationDate).getTime())) {
-    return "N/A";
-  }
-
-  const now = new Date();
-  const expiry = new Date(expirationDate);
-  const diff = expiry.getTime() - now.getTime();
-
-  // Si la date est déjà passée
-  if (diff <= 0) return "Expiré";
-
-  // Calcul des jours et heures restants
-  const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-  const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-  
-  return `${days}jrs : ${hours}h`;
-};
-
-/**
- * Formate une date en format court français "17 Nov"
- * @param dateStr - Date au format string
- * @returns Date formatée ou "N/A" si invalide
- */
-const formatDateShortFR = (dateStr?: string) => {
-  if (!dateStr) return "N/A";
-  
-  const date = new Date(dateStr);
-  if (isNaN(date.getTime())) return "N/A";
-  
-  return date.toLocaleDateString("fr-FR", {
-    day: "numeric",
-    month: "short",
-  }).replace('.', '');
-};
-
-/**
- * Formate une date en format long français "17 novembre 2024"
- * @param dateStr - Date au format string
- * @returns Date formatée ou "N/A" si invalide
- */
-const formatDateFR = (dateStr?: string) => {
-  if (!dateStr) return "N/A";
-  
-  const date = new Date(dateStr);
-  if (isNaN(date.getTime())) return "N/A";
-  
-  return date.toLocaleDateString("fr-FR", {
-    day: "numeric",
-    month: "long",
-    year: "numeric",
-  });
-};
 
 /* -------------------------------
    COMPOSANT PRINCIPAL
@@ -231,8 +168,6 @@ const Index = () => {
         return matchesDeparture && matchesDestination && matchesWeight;
       });
 
-      console.log(`📊 Résultats filtrés: ${filtered.length} porteurs`);
-      
       // Mise à jour de la liste affichée
       setFilteredCarriers(filtered);
       
@@ -246,12 +181,12 @@ const Index = () => {
         setSelectedCarrier(0);
       }
       
-      // 🔥 Désactivation du feedback visuel après le filtrage
+      //  Désactivation du feedback visuel après le filtrage
       setIsSearching(false);
     }, 300); // Petit délai de 300ms pour que l'utilisateur voie le feedback
   };
 
-  // 🔥 Fonction pour réinitialiser la recherche et voir tous les porteurs
+  // 🔥Fonction pour réinitialiser la recherche et voir tous les porteurs
   const resetSearch = () => {
     setFilteredCarriers(allCarriers);
     if (allCarriers.length > 0) {
