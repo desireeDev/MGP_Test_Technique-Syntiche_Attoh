@@ -98,7 +98,8 @@ BASE_URL = http://localhost:8000/api
 
 #Un apercu de quelques tables essentielles
 
-<img width="608" height="286" alt="Apercu" src="https://github.com/user-attachments/assets/d8eeac61-7dcd-46e6-ba02-5626782e193d" />
+<img width="755" height="419" alt="MCD_Update" src="https://github.com/user-attachments/assets/ac2235f4-5f69-49ba-8b62-e2482ac71d6f" />
+
 
 #La disposition des Api sur Postman
 
