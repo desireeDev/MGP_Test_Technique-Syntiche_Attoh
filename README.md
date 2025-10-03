@@ -23,11 +23,11 @@ Design Initial Fin
 <img width="950" height="566" alt="MaPage" src="https://github.com/user-attachments/assets/9ef957b5-05b7-47c5-9cee-e4a7587cd04e" />
 
 
-
+<img width="957" height="492" alt="Infos_Personnels" src="https://github.com/user-attachments/assets/445926e2-f83d-458f-9d55-c0ef853610e9" />
 
 <img width="946" height="531" alt="P4" src="https://github.com/user-attachments/assets/a2291fef-106a-4691-b8f4-8e8e91a7a08b" />
 
-<img width="957" height="492" alt="Infos_Personnels" src="https://github.com/user-attachments/assets/445926e2-f83d-458f-9d55-c0ef853610e9" />
+
 
 
 https://github.com/user-attachments/assets/f05b9ff1-5dcf-49f1-bf89-2cabee626db1
