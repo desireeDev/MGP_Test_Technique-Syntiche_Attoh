@@ -18,14 +18,15 @@ Design Initial Début
 
 Design Initial Fin
 
-
 #FirstPage
 
 <img width="936" height="532" alt="V1_final" src="https://github.com/user-attachments/assets/003f9a73-8190-48fa-b79f-e91d39ab6c96" />
+#Second Page to construct
 
 <img width="946" height="531" alt="P4" src="https://github.com/user-attachments/assets/a2291fef-106a-4691-b8f4-8e8e91a7a08b" />
+#ThirdPage
+<img width="937" height="439" alt="image" src="https://github.com/user-attachments/assets/a51f1891-9bf0-41dc-bfc9-39afba6edff5" />
 
-<img width="942" height="388" alt="Dubois" src="https://github.com/user-attachments/assets/6199bf1d-7ef6-4502-93c1-62cc22cc0eee" />
 
 #Extrait de la vidéo
 
