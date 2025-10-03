@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { getPorteurs, getTrajets, getTypeColisByTrajet } from "@/services/api";
 import { Porteur, TrajetPorteur } from "@/services/types";
-
 import Header from "@/components/Header";
 import SearchForm, { SearchData } from "@/components/SearchForm";
 import CarrierCard from "@/components/CarrierCard";

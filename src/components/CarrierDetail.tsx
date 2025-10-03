@@ -73,7 +73,7 @@ const CarrierDetail = ({ carrier }: CarrierDetailProps) => {
     };
     return flags[codePays] || `/assets/${codePays}.png`;
   };
-
+// Rendu du composant
   return (
     <div className="space-y-6">
       {/* Carte itinéraire */}

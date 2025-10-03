@@ -1,4 +1,5 @@
 // tsconfig.node.json
+//configuration spécifique pour les fichiers côté Node.js
 {
   "compilerOptions": {
     "target": "ES2022",

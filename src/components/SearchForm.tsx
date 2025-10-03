@@ -72,7 +72,7 @@ const SearchForm = ({ onSearch, availableDestinations = [], availableDepartures 
     setDisplayDate(formatDateForDisplay(newDate));
   };
 
-  // 🔹 CORRECTION : Ouvre le date picker avec useRef
+  // 🔹 Ouvre le date picker avec useRef
   const handleDisplayDateClick = () => {
     if (dateInputRef.current) {
       dateInputRef.current.showPicker();
@@ -166,21 +166,27 @@ const SearchForm = ({ onSearch, availableDestinations = [], availableDepartures 
           </div>
         </div>
 
-        {/* Poids */}
+        {/* Poids avec "kilos" ajouté */}
         <div className="space-y-2">
           <label className="text-sm text-muted-foreground flex items-center gap-2">
             <Package className="w-4 h-4" />
-            Poids (kg)
+            Poids
           </label>
-          <Input
-            type="number"
-            value={weight}
-            onChange={(e) => setWeight(e.target.value)}
-            placeholder="Poids en kg"
-            className="font-semibold"
-            min="0.1"
-            step="0.1"
-          />
+          <div className="relative">
+            <Input
+              type="number"
+              value={weight}
+              onChange={(e) => setWeight(e.target.value)}
+              placeholder="Poids"
+              className="font-semibold pr-16" // Ajout de padding à droite pour "kilos"
+              min="0.1"
+              step="0.1"
+            />
+            {/* Texte "kilos" positionné à droite dans l'input */}
+            <div className="absolute right-3 top-1/2 transform -translate-y-1/2 text-muted-foreground font-medium">
+              kilos
+            </div>
+          </div>
         </div>
 
         {/* Bouton de recherche */}

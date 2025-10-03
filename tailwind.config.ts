@@ -1,5 +1,6 @@
 import type { Config } from "tailwindcss";
-
+//Système Principal de gestion du thème (couleurs, typographie, etc.) avec Tailwind CSS.NB:c'esst modificable
+//Il définit la teinte de l'application (couleurs, typographie, etc.) et inclut des plugins pour des animations supplémentaires.
 export default {
   darkMode: ["class"],
   content: ["./pages/**/*.{ts,tsx}", "./components/**/*.{ts,tsx}", "./app/**/*.{ts,tsx}", "./src/**/*.{ts,tsx}"],

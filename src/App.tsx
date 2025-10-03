@@ -4,7 +4,7 @@ import Index from "./pages/Index";
 
 // Client pour gérer les requêtes API
 const queryClient = new QueryClient();
-
+//Le point d'entré de l'application
 /**
  * COMPOSANT PRINCIPAL DE L'APPLICATION
  */
@@ -23,3 +23,8 @@ const App = () => (
 );
 
 export default App;
+//Initialiser React Query pour gérer les appels API (caching, erreurs, synchronisation).
+
+//Configurer la navigation avec React Router (chaque URL affiche un composant différent).
+
+//Définir la structure globale de l’application (layout, thème, etc.).

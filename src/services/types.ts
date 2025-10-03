@@ -1,5 +1,5 @@
 // src/types.ts
-
+//NB:Les donnees doivent correspondre a celles du backend (api.ts) afin d'eviter les erreurs de type et de correspondance   
 // --- Utilisateur ---
 export interface User {
   id_utilisateur: number;

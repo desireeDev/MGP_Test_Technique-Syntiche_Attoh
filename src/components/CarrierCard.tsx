@@ -15,7 +15,7 @@ interface CarrierCardProps {
   isActive?: boolean;   
   onClick?: () => void; 
 }
-// Composant CarrierCard affichant des constantes non modifiables
+// Chaque champ de CarrierCardProps devient une variable locale qu'on peut utiliser dans le composant.
 const CarrierCard = ({
   name,
   certification,
