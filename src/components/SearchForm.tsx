@@ -1,6 +1,5 @@
 import { MapPin, Calendar, Package, Search } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
 import { useState, useEffect, useRef } from "react";
 
 // Définition des types pour les données de recherche
@@ -41,7 +40,7 @@ const SearchForm = ({ onSearch, availableDestinations = [], availableDepartures 
     return `${day} ${capitalizedMonth}`;
   };
 
-  // 🔹 Initialise les valeurs avec les premières options disponibles
+  //  Initialise les valeurs avec les premières options disponibles
   useEffect(() => {
     if (availableDepartures.length > 0 && !departure) {
       setDeparture(availableDepartures[0]);
@@ -65,14 +64,14 @@ const SearchForm = ({ onSearch, availableDestinations = [], availableDepartures 
     }
   }, [availableDepartures, availableDestinations, departure, destination, date, weight]);
 
-  // 🔹 Gère le changement de date
+  //  Gère le changement de date
   const handleDateChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const newDate = e.target.value;
     setDate(newDate);
     setDisplayDate(formatDateForDisplay(newDate));
   };
 
-  // 🔹 Ouvre le date picker avec useRef
+  // Ouvre le date picker avec useRef
   const handleDisplayDateClick = () => {
     if (dateInputRef.current) {
       dateInputRef.current.showPicker();
@@ -87,115 +86,124 @@ const SearchForm = ({ onSearch, availableDestinations = [], availableDepartures 
   };
 
   return (
-    <div className="bg-card rounded-2xl shadow-sm border border-border p-8 mb-8">
-      {/* Grid pour aligner les inputs et le bouton */}
-      <div className="grid grid-cols-1 md:grid-cols-5 gap-4 items-end">
+    <div className="bg-white rounded-2xl shadow-sm border border-gray-200 p-3 mb-6">
+      <div className="flex items-center gap-4">
+        {/* Pillule grise */}
+        {/* Utilisation de flex-1 pour que la pillule prenne tout l'espace disponible  et jouer sur la taille px*/ }
+        <div className="bg-gray-50 rounded-full shadow-sm border border-gray-200 px-2 py-1.5 flex-1">
+          <div className="flex items-center gap-0 divide-x divide-gray-300">
 
         {/* Départ du colis - Dynamique depuis la BD */}
-        <div className="space-y-2">
-          <label className="text-sm text-muted-foreground flex items-center gap-2">
-            <MapPin className="w-4 h-4" />
-            Départ du colis
-          </label>
-          <select
-            value={departure}
-            onChange={(e) => setDeparture(e.target.value)}
-            className="w-full p-2 border border-border rounded-md font-semibold bg-background"
-          >
-            {availableDepartures.length > 0 ? (
-              availableDepartures.map((city, index) => (
-                <option key={index} value={city}>
-                  {city}
-                </option>
-              ))
-            ) : (
-              <option value="">Chargement...</option>
-            )}
-          </select>
-        </div>
-
-        {/* Destination - Dynamique depuis la BD */}
-        <div className="space-y-2">
-          <label className="text-sm text-muted-foreground flex items-center gap-2">
-            <MapPin className="w-4 h-4" />
-            Destination
-          </label>
-          <select
-            value={destination}
-            onChange={(e) => setDestination(e.target.value)}
-            className="w-full p-2 border border-border rounded-md font-semibold bg-background"
-          >
-            {availableDestinations.length > 0 ? (
-              availableDestinations.map((city, index) => (
-                <option key={index} value={city}>
-                  {city}
-                </option>
-              ))
-            ) : (
-              <option value="">Chargement...</option>
-            )}
-          </select>
-        </div>
-
-        {/* Départ souhaité - FORMAT "02 Décembre" */}
-        <div className="space-y-2">
-          <label className="text-sm text-muted-foreground flex items-center gap-2">
-            <Calendar className="w-4 h-4" />
-            Départ souhaité
-          </label>
-          
-          {/* Input caché pour le date picker avec ref */}
-          <input
-            ref={dateInputRef}
-            type="date"
-            value={date}
-            onChange={handleDateChange}
-            className="hidden"
-            min={new Date().toISOString().split('T')[0]}
-          />
-          
-          {/* Input d'affichage stylisé avec format "02 Décembre" */}
-          <div 
-            onClick={handleDisplayDateClick}
-            className="w-full p-3 border border-border rounded-md font-semibold bg-background cursor-pointer hover:bg-muted/50 transition-colors flex items-center justify-between"
-          >
-            <span className={displayDate ? "text-foreground text-base" : "text-muted-foreground"}>
-              {displayDate || "Sélectionner une date"}
-            </span>
-            <Calendar className="w-4 h-4 text-muted-foreground" />
+        <div className="flex items-center gap-2 px-4 py-1.5 flex-1">
+          <MapPin className="w-4 h-4 text-gray-500 flex-shrink-0" />
+          <div className="flex flex-col min-w-0">
+            <label className="text-xs text-gray-500 mb-0.5">
+              Départ du colis
+            </label>
+            <select
+              value={departure}
+              onChange={(e) => setDeparture(e.target.value)}
+              className="text-sm font-medium bg-transparent border-none outline-none cursor-pointer text-gray-900 truncate"
+              style={{ appearance: 'none', WebkitAppearance: 'none' }}
+            >
+              {availableDepartures.length > 0 ? (
+                availableDepartures.map((city, index) => (
+                  <option key={index} value={city}>
+                    {city}
+                  </option>
+                ))
+              ) : (
+                <option value="">Chargement...</option>
+              )}
+            </select>
           </div>
         </div>
 
-        {/* Poids avec "kilos" ajouté */}
-        <div className="space-y-2">
-          <label className="text-sm text-muted-foreground flex items-center gap-2">
-            <Package className="w-4 h-4" />
-            Poids
-          </label>
-          <div className="relative">
-            <Input
-              type="number"
-              value={weight}
-              onChange={(e) => setWeight(e.target.value)}
-              placeholder="Poids"
-              className="font-semibold pr-16" // Ajout de padding à droite pour "kilos"
-              min="0.1"
-              step="0.1"
+        {/* Destination - Dynamique depuis la BD */}
+        <div className="flex items-center gap-2 px-4 py-1.5 flex-1">
+          <MapPin className="w-4 h-4 text-gray-500 flex-shrink-0" />
+          <div className="flex flex-col min-w-0">
+            <label className="text-xs text-gray-500 mb-0.5">
+              Destination
+            </label>
+            <select
+              value={destination}
+              onChange={(e) => setDestination(e.target.value)}
+              className="text-sm font-medium bg-transparent border-none outline-none cursor-pointer text-gray-900 truncate"
+              style={{ appearance: 'none', WebkitAppearance: 'none' }}
+            >
+              {availableDestinations.length > 0 ? (
+                availableDestinations.map((city, index) => (
+                  <option key={index} value={city}>
+                    {city}
+                  </option>
+                ))
+              ) : (
+                <option value="">Chargement...</option>
+              )}
+            </select>
+          </div>
+        </div>
+
+        {/* Départ souhaité - FORMAT "02 Décembre" */}
+        <div className="flex items-center gap-2 px-4 py-1.5 flex-1">
+          <Calendar className="w-4 h-4 text-gray-500 flex-shrink-0" />
+          <div className="flex flex-col">
+            <label className="text-xs text-gray-500 mb-0.5">
+              Départ souhaité
+            </label>
+            
+            {/* Input caché pour le date picker avec ref */}
+            <input
+              ref={dateInputRef}
+              type="date"
+              value={date}
+              onChange={handleDateChange}
+              className="hidden"
+              min={new Date().toISOString().split('T')[0]}
             />
-            {/* Texte "kilos" positionné à droite dans l'input */}
-            <div className="absolute right-3 top-1/2 transform -translate-y-1/2 text-muted-foreground font-medium">
-              kilos
+            
+            {/* Affichage cliquable */}
+            <div 
+              onClick={handleDisplayDateClick}
+              className="text-sm font-medium cursor-pointer text-gray-900 whitespace-nowrap"
+            >
+              {displayDate || "Sélectionner une date"}
             </div>
           </div>
         </div>
 
-        {/* Bouton de recherche */}
+        {/* Poids avec "kilos" ajouté */}
+        <div className="flex items-center gap-2 px-4 py-1.5 flex-1">
+          <Package className="w-4 h-4 text-gray-500 flex-shrink-0" />
+          <div className="flex flex-col">
+            <label className="text-xs text-gray-500 mb-0.5">
+              Poids
+            </label>
+            <div className="flex items-center gap-1.5">
+              <input
+                type="number"
+                value={weight}
+                onChange={(e) => setWeight(e.target.value)}
+                className="w-12 text-sm font-medium bg-transparent border-none outline-none text-gray-900"
+                min="0.1"
+                step="0.1"
+              />
+              <span className="text-sm font-medium text-gray-900 whitespace-nowrap">kilos</span>
+            </div>
+          </div>
+        </div>
+
+        </div>
+      </div>
+
+        {/* Bouton de recherche - EN DEHORS de la pillule */}
         <Button 
           onClick={handleSearch}
-          className="w-full h-12 bg-primary hover:bg-primary/90 text-primary-foreground font-medium rounded-3xl"
+          className="h-12 px-6 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-full flex items-center gap-2 whitespace-nowrap flex-shrink-0"
           disabled={!departure || !destination}
         >
-          <Search className="w-5 h-5 mr-2" />
+          <Search className="w-4 h-4" />
           Rechercher un porteur
         </Button>
       </div>
