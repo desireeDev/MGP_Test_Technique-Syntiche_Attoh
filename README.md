@@ -28,7 +28,10 @@ Design Initial Fin
 <img width="937" height="439" alt="image" src="https://github.com/user-attachments/assets/a51f1891-9bf0-41dc-bfc9-39afba6edff5" />
 
 
-#Extrait de la vidéo
+#Extrait de la vidéoV1
 
-https://github.com/user-attachments/assets/4f97d5e5-b1d8-4c0d-b26f-9424023250b8
+
+https://github.com/user-attachments/assets/a3040ff5-490c-4ae1-a1bc-1d916d31ca64
+
+
 
